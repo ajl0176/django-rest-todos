@@ -1,5 +1,5 @@
 from rest_framework import generics
-from rest_framework.generics import DestroyAPIView
+
 
 
 from .models import Todo
@@ -7,17 +7,12 @@ from .serializers import TodoSerializer
 
 
 
-class TodoListAPIView(generics.ListAPIView):
+class TodoListCreateView(generics.ListCreateAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
 
 
 
-class TodoDetailAPIView(generics.RetrieveAPIView):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
-
-
-class TodoDestroyAPIView(generics.DestroyAPIView):
+class TodoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
